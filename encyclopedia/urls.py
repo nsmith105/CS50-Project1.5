@@ -2,9 +2,9 @@ from django.urls import path
 
 from . import views
 
-app_name = "wiki"
+app_name = "encyclopedia"
 
 urlpatterns = [
     path("", views.index, name="index")
-    path("wiki/<str:entryname>", views.wiki, name="wiki")
+    path("<str:title>", views.view_page, name="view_page")
 ]
