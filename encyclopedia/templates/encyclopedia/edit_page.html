@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Page - {{ title }}
+{% endblock %}
+
+{% block body %}
+    <h1>Edit  Encyclopedia Entry</h1>
+    <hr>
+    <form action="{% url 'edit_entry' title %}" method="post">
+        {% csrf_token %}
+        <span style="font-size: 1em; font-weight: bolder;">Title</span>
+        <br>
+        <small>Maximum 64 characters.</small>
+        <br>
+        <textarea name="title" rows="1" cols="64" maxlength="64" readonly>{{ title }}</textarea>
+        <br><br>
+        <span style="font-size: 1em; font-weight: bolder;">Content</span>
+        <br>
+        <small>Must use MARKDOWN format.</small>
+        <br>
+        <textarea name="content" style="width: 80%; height: 50vh;" required>{{ content }}</textarea>
+        <br>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+{% endblock %}

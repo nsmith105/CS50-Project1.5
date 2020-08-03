@@ -5,11 +5,15 @@
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
+    {% if message %}
+        <div class="alert alert-warning" role="alert">{{ message }}</div>
+    {% endif %}
 
+    <h1>All Pages</h1>
+    <hr>
     <ul>
         {% for entry in entries %}
-            <li><a href="/{{ entry.casefold }}">{{ entry }}</a></li>
+            <li><a href="{% url 'entry' entry %}">{{ entry }}</a></li>
         {% endfor %}
     </ul>
 
