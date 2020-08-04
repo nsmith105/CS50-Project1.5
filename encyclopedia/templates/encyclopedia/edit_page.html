@@ -7,13 +7,13 @@
 {% block body %}
     <h1>Edit  Encyclopedia Entry</h1>
     <hr>
-    <form action="{% url 'edit_entry' title %}" method="post">
+    <form action="{% url 'edit_page' title %}" method="post">
         {% csrf_token %}
         <span style="font-size: 1em; font-weight: bolder;">Title</span>
         <br>
         <small>Maximum 64 characters.</small>
         <br>
-        <textarea name="title" rows="1" cols="64" maxlength="64" readonly>{{ title }}</textarea>
+        <textarea name="title" rows="1" cols="64" maxlength="64" style="height: 30px;" readonly>{{ title }}</textarea>
         <br><br>
         <span style="font-size: 1em; font-weight: bolder;">Content</span>
         <br>

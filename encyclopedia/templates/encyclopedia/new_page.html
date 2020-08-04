@@ -2,7 +2,7 @@
 
 {% block title %}
     Create New Page
-{% endblock %}
+{% endblock  %}
 
 {% block body %}
     {% if message %}
@@ -11,13 +11,13 @@
 
     <h1>New Encyclopedia Entry</h1>
     <hr>
-    <form action="{% url 'new_entry' %}" method="post">
+    <form action="{% url 'new_page' %}" method="post">
         {% csrf_token %}
         <span style="font-size: 1em; font-weight: bolder;">Title</span>
         <br>
         <small>Maximum 64 characters.</small>
         <br>
-        <textarea name="title" rows="1" cols="64" maxlength="64" required>{% if title %}{{ title }}{% endif %}</textarea>
+        <textarea name="title" rows="1" cols="64" maxlength="64" style="height: 30px;" required>{% if title %}{{ title }}{% endif %}</textarea>
         <br><br>
         <span style="font-size: 1em; font-weight: bolder;">Content</span>
         <br>
@@ -27,3 +27,4 @@
         <br>
         <button type="submit" class="btn btn-secondary">Submit</button>
     </form>
+{% endblock %}

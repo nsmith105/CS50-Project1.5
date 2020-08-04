@@ -28,7 +28,7 @@ def search(request):
         result = []
         for title in util.list_entries():
             if keyword.casefold() in title.casefold():
-                result.appent(title)
+                result.append(title)
         return render(request, "encyclopedia/search.html", {
             "result": result
         })
